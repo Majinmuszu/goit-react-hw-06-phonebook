@@ -8,16 +8,18 @@ export const ContactForm = () => {
 
   const submitForm = (e) => {
     const form = e.target;
+    const name = form.name.value;
+    const number = form.number.value;
     e.preventDefault();
-    if (contacts.some((contacts) => contacts.name === form.name.value)) {
-      alert(`${form.name.value} is already in contacts`);
+    if (contacts.some((contacts) => contacts.name === name)) {
+      alert(`${name} is already in contacts`);
       return;
     }
-    if (contacts.some((contacts) => contacts.number === form.number.value)) {
-      alert(`${form.number.value} is already in contacts`);
+    if (contacts.some((contacts) => contacts.number === number)) {
+      alert(`${number} is already in contacts`);
       return;
     }
-    dispatch(addContact({ name: form.name.value, number: form.number.value }));
+    dispatch(addContact({ name, number }));
     form.reset();
   };
 
@@ -31,7 +33,6 @@ export const ContactForm = () => {
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
-          // onChange={this.setNameAndNumber}
         />
       </label>
       <label>
@@ -43,7 +44,6 @@ export const ContactForm = () => {
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
-          // onChange={this.setNameAndNumber}
         />
       </label>
       <button type="submit">Add contact</button>

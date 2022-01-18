@@ -1,11 +1,11 @@
 import React from "react";
 import { Contact } from "../Contact/Contact";
 
-export const ContactList = ({ contacts, deleteContact }) => {
+export const ContactList = () => {
   return (
     <div>
       <ul>
-        <Contact contacts={contacts} deleteContact={deleteContact} />
+        <Contact/>
       </ul>
     </div>
   );

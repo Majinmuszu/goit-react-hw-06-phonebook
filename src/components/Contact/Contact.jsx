@@ -19,11 +19,12 @@ export const Contact = () => {
   );
   const dispatch = useDispatch();
   saveToLocalStore("CONTACTS", contacts);
+
   return (
     <>
       {contacts.map(({ id, name, number }) => (
         <li key={id}>
-          {name}: {number}
+          {name} : {number}
           <button type="button" onClick={() => dispatch(deleteContact(id))}>
             Delete
           </button>

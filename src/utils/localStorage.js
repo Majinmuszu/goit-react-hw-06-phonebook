@@ -1,4 +1,3 @@
-
 const saveToLocalStore = (key, value) => {
   try {
     const serializedState = JSON.stringify(value);
@@ -7,6 +6,7 @@ const saveToLocalStore = (key, value) => {
     console.error("Set state error: ", error.message);
   }
 };
+
 const loadLocalStore = (key) => {
   try {
     const serializedState = localStorage.getItem(key);
